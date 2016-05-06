@@ -3,7 +3,7 @@ require_relative 'game'
 
 describe "Game" do
   before do
-    class Game
+    class UserInterface
       def get_input
         1
       end
@@ -27,12 +27,6 @@ describe "Game" do
       (1..9).each do |position|
         assert_equal(nil, @game.board.grid[position])
       end
-    end
-  end
-
-  describe "test get_choice" do
-    it "should get player choice to go first" do
-      assert_equal(1, @game.get_choice)
     end
   end
 

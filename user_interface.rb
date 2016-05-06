@@ -9,6 +9,7 @@ class UserInterface
         when 0 then output << "\n-----------\n" unless position == 9
       end
     end
+    output << "\n"
     puts output
   end
 

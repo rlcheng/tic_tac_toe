@@ -15,38 +15,19 @@ class Game
 
     @UI = UserInterface.new
 
-    choice = get_choice
+    choice = @UI.get_choice
     @player = Player.new(choice)
-    puts "You are Player #{@player.marker}"
+    @UI.message("You are Player #{@player.marker}")
 
     if choice == 1
       @cpu = Cpu.new(2)
     else
       @cpu = Cpu.new(1)
     end
-    puts "CPU is Player #{@cpu.marker}"
+    @UI.message("CPU is Player #{@cpu.marker}")
 
     @UI.print_board(@board.grid)
     puts ""
-  end
-
-  def get_choice
-    choice = 0
-    check = false
-    while check == false
-      puts "Enter 1 to go first or 2 to go second"
-      choice = get_input
-      if choice == 1
-        check = true
-      elsif choice == 2
-        check = true
-      end
-    end
-    choice
-  end
-
-  def get_input
-    gets.to_i
   end
 
   def next_turn
@@ -61,28 +42,27 @@ class Game
     winner = @board.winner
     if winner
       if winner == @player.marker
-        puts "You win!!!"
+        @UI.message("You win!!!")
       else
-        puts "You lose! CPU wins!!!"
+        @UI.message("You lose! CPU wins!!!")
       end
       @game_over = true
     elsif @board.draw?
-      puts "It's a Draw!"
+      @UI.message("It's a Draw!")
       @game_over = true
     end
   end
 
   def loop
     if @turn == @player.turn
-      puts "Player #{@player.marker} turn"
+      @UI.message("Player #{@player.marker} turn")
       @player.move(@board)
     else
-      puts "CPU #{@cpu.marker} turn"
+      @UI.message("CPU #{@cpu.marker} turn")
       @cpu.move(@board)
     end
     check
     @UI.print_board(@board.grid)
-    puts ""
     next_turn
   end
 end
