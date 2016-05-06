@@ -119,4 +119,10 @@ describe "Board" do
       assert_equal('O', @board.next_mark)
     end
   end
+
+  describe "test max_position" do
+    it "should return the maximum position on the board" do
+      assert_equal(9, Board.max_position)
+    end
+  end
 end

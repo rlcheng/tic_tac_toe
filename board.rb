@@ -2,6 +2,11 @@ require_relative "user_interface"
 
 class Board
   attr_reader :grid, :blanks
+
+  def self.max_position
+    9
+  end
+  
   def initialize
     @grid = Array.new(10)
     @blanks = 9

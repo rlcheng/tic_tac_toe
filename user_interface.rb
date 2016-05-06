@@ -1,3 +1,5 @@
+require_relative 'board'
+
 class UserInterface
 
   def print_board(board)
@@ -35,7 +37,7 @@ class UserInterface
   end
 
   def get_move
-    get_allowed_input(1, 9, "Input position: ")
+    get_allowed_input(1, Board.max_position, "Input position: ")
   end
 
 end
