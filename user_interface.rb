@@ -17,6 +17,15 @@ class UserInterface
     puts output
   end
 
+  def get_input
+    gets.to_i
+  end
+
+  def get_allowed_input(min, max, message)
+    
+
+  end
+
   def get_choice
     choice = 10
     while !choice.between?(1,2)
@@ -26,8 +35,13 @@ class UserInterface
     choice
   end
 
-  def get_input
-    gets.to_i
+  def get_move
+    position = 999
+    while !position.between?(1,9)
+      puts "Input position: "
+      position = get_input
+    end
+    position
   end
 
 end

@@ -1,3 +1,4 @@
+require_relative 'user_interface'
 require_relative 'board'
 
 class Player
@@ -12,27 +13,13 @@ class Player
       @marker = 'O'
     end
     @position = 0
-  end
-
-  def get_input
-    gets.to_i
-  end
-
-  def get_move
-    check = false
-    while check == false
-      puts "Input position: "
-      @position = get_input
-      if @position > 0 && @position < 10
-        check = true
-      end
-    end
+    @UI = UserInterface.new
   end
 
   def move(board)
     move = false
     while move == false do
-      get_move
+      @position = @UI.get_move
       move = board.place(@position, @marker)
     end
   end

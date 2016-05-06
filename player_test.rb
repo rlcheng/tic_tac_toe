@@ -18,22 +18,15 @@ describe "Player" do
 
   describe "test move" do
     before do
-      class Player
+      class UserInterface
         def get_input
           5
         end
       end
     end
 
-    it "should get and store player move" do
-      player = Player.new(1)
-      player.get_move
-      assert_equal(5, player.position)
-    end
-
     it "should place the move" do
       player = Player.new(1)
-      player.get_move
       board = Board.new
       player.move(board)
       assert_equal('X', board.grid[5])

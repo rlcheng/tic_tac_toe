@@ -32,7 +32,7 @@ describe "UI" do
     end
   end
 
-  describe "get choice" do
+  describe "get user input" do
     before do
       class UserInterface
         def get_input
@@ -44,7 +44,11 @@ describe "UI" do
     end
 
     it "should get user choice to go first" do
-      assert_equal(1, @UI.get_input)
+      assert_equal(1, @UI.get_choice)
+    end
+
+    it "should get user move for position 1" do
+      assert_equal(1, @UI.get_move)
     end
   end
   
