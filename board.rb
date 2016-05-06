@@ -5,7 +5,8 @@ class Board
     @blanks = 9
     @win = [[1,2,3],[4,5,6],[7,8,9], # horizontal lines
             [1,4,7],[2,5,8],[3,6,9], # vertical lines
-            [1,5,9],[3,5,7]] #diagonal lines    
+            [1,5,9],[3,5,7]] #diagonal lines
+    @UI = UserInterface.new
   end
 
   def place(position, mark)
@@ -14,7 +15,7 @@ class Board
       @blanks -= 1
       return true
     end
-    puts "Position taken, please select another."
+    @UI.message("Position taken, please select another.")
     false
   end
 
