@@ -2,12 +2,13 @@ require_relative "player"
 
 class Cpu < Player
   attr_accessor :moves
-  attr_reader :opponent
+  attr_reader :opponent, :name
 
   GAME_NOT_OVER = 999
 
   def initialize(turn)
     super
+    @name = 'CPU'
     if @turn == 1
       @opponent = 'O'
     else

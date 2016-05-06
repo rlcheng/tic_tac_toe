@@ -3,9 +3,10 @@ require_relative 'board'
 
 class Player
   attr_accessor :turn, :marker
-  attr_reader :position
+  attr_reader :position, :name
 
   def initialize(turn)
+    @name = 'Player'
     @turn = turn
     if @turn == 1
       @marker = 'X'

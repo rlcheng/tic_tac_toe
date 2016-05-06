@@ -21,8 +21,10 @@ class Game
 
     if choice == 1
       @cpu = Cpu.new(2)
+      @current_player = @player
     else
       @cpu = Cpu.new(1)
+      @current_player = @cpu
     end
     @UI.message("CPU is Player #{@cpu.marker}")
 
@@ -31,10 +33,10 @@ class Game
   end
 
   def next_turn
-    if @turn == 1
-      @turn = 2
+    if @current_player.turn == 1
+      @current_player = @cpu
     else
-      @turn = 1
+      @current_player = @player
     end
   end
 
@@ -54,6 +56,7 @@ class Game
   end
 
   def loop
+=begin
     if @turn == @player.turn
       @UI.message("Player #{@player.marker} turn")
       @player.move(@board)
@@ -61,6 +64,9 @@ class Game
       @UI.message("CPU #{@cpu.marker} turn")
       @cpu.move(@board)
     end
+=end
+    puts "#{@current_player.name} #{@current_player.marker} turn"
+    @current_player.move(@board)
     check
     @UI.print_board(@board.grid)
     next_turn
