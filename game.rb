@@ -5,11 +5,10 @@ require_relative 'cpu'
 
 class Game
   attr_accessor :game_over, :turn
-  attr_reader :player, :cpu, :board
+  attr_reader :player, :cpu, :current_player, :board
 
   def initialize
     @game_over = false
-    @turn = 1
 
     @board = Board.new
 
@@ -56,15 +55,6 @@ class Game
   end
 
   def loop
-=begin
-    if @turn == @player.turn
-      @UI.message("Player #{@player.marker} turn")
-      @player.move(@board)
-    else
-      @UI.message("CPU #{@cpu.marker} turn")
-      @cpu.move(@board)
-    end
-=end
     puts "#{@current_player.name} #{@current_player.marker} turn"
     @current_player.move(@board)
     check

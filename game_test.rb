@@ -32,9 +32,12 @@ describe "Game" do
 
   describe "test next_turn" do
     it "should cycle turns" do
-      assert_equal(2, @game.next_turn)
-      assert_equal(1, @game.next_turn)
-      assert_equal(2, @game.next_turn)
+      @game.next_turn
+      assert_equal(@game.cpu, @game.current_player)
+      @game.next_turn
+      assert_equal(@game.player, @game.current_player)
+      @game.next_turn
+      assert_equal(@game.cpu, @game.current_player)
     end
   end
 
@@ -75,9 +78,8 @@ describe "Game" do
 
   describe "test game loop" do
     it "should go through a turn" do
-      @game.next_turn
       @game.loop
-      assert_equal(1, @game.turn)
+      assert_equal(@game.cpu, @game.current_player)
     end
   end
 end
