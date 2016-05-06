@@ -26,7 +26,7 @@ class Game
     end
     puts "CPU is Player #{@cpu.marker}"
 
-    @UI.display(@board.grid)
+    @UI.print_board(@board.grid)
     puts ""
   end
 
@@ -81,7 +81,7 @@ class Game
       @cpu.move(@board)
     end
     check
-    @UI.display(@board.grid)
+    @UI.print_board(@board.grid)
     puts ""
     next_turn
   end
