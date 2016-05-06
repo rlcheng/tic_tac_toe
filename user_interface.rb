@@ -22,26 +22,20 @@ class UserInterface
   end
 
   def get_allowed_input(min, max, message)
-    
-
+    input = 999
+    while !input.between?(min, max)
+      puts "#{message}: "
+      input = get_input
+    end
+    input
   end
 
   def get_choice
-    choice = 10
-    while !choice.between?(1,2)
-      puts "Enter 1 to go first or 2 to go second"
-      choice = get_input
-    end
-    choice
+    get_allowed_input(1, 2, "Enter 1 to go first or 2 to go second")
   end
 
   def get_move
-    position = 999
-    while !position.between?(1,9)
-      puts "Input position: "
-      position = get_input
-    end
-    position
+    get_allowed_input(1, 9, "Input position: ")
   end
 
 end
