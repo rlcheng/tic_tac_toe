@@ -1,3 +1,4 @@
+require_relative 'user_interface'
 require_relative 'board'
 require_relative 'player'
 require_relative 'cpu'
@@ -12,6 +13,8 @@ class Game
 
     @board = Board.new
 
+    @UI = UserInterface.new
+
     choice = get_choice
     @player = Player.new(choice)
     puts "You are Player #{@player.marker}"
@@ -23,7 +26,7 @@ class Game
     end
     puts "CPU is Player #{@cpu.marker}"
 
-    @board.display
+    @UI.display(@board.grid)
     puts ""
   end
 
@@ -78,7 +81,7 @@ class Game
       @cpu.move(@board)
     end
     check
-    @board.display
+    @UI.display(@board.grid)
     puts ""
     next_turn
   end

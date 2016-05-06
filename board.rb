@@ -8,18 +8,6 @@ class Board
             [1,5,9],[3,5,7]] #diagonal lines    
   end
 
-  def display
-    output = ""
-    (1..9).each do |position|
-      output << " #{@grid[position] || position} "
-      case position % 3
-        when 1, 2 then output << "|"
-        when 0 then output << "\n-----------\n" unless position == 9
-      end
-    end
-    puts output
-  end
-
   def place(position, mark)
     if @grid[position] == nil
       @grid[position] = mark
