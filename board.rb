@@ -1,3 +1,5 @@
+require_relative "user_interface"
+
 class Board
   attr_reader :grid, :blanks
   def initialize
