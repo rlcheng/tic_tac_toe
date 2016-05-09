@@ -8,8 +8,8 @@ class Board
   end
   
   def initialize
-    @grid = Array.new(10)
-    @blanks = 9
+    @grid = Array.new(Board.max_position + 1)
+    @blanks = Board.max_position
     @win = [[1,2,3],[4,5,6],[7,8,9], # horizontal lines
             [1,4,7],[2,5,8],[3,6,9], # vertical lines
             [1,5,9],[3,5,7]] #diagonal lines
