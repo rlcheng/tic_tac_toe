@@ -14,3 +14,5 @@ I used Minimax to determine the best move for the AI to make. Score of 10 if a m
 
 ###More stuff
 This game is structured so that it can easily be adapted to allow 2 human players, or a game completely played out by 2 AIs, as can be seen in cpu_test.rb
+
+Code further refactored so that the user_interface could be easily changed from console input to html or others.
