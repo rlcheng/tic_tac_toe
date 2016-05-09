@@ -4,7 +4,7 @@ require_relative 'player'
 require_relative 'cpu'
 
 class Game
-  attr_accessor :game_over, :turn
+  attr_accessor :game_over
   attr_reader :player, :cpu, :current_player, :board
 
   def initialize
@@ -32,7 +32,7 @@ class Game
   end
 
   def next_turn
-    if @current_player.turn == 1
+    if @current_player.name == "Player"
       @current_player = @cpu
     else
       @current_player = @player
