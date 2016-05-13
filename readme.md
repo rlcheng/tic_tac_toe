@@ -12,6 +12,8 @@
 ###AI
 I used Minimax to determine the best move for the AI to make. Score of 10 if a move results in eventually winning the game. 0 if it results in a draw, and -10 if it results in a loss. Depth of recursive calls on Minimax is also put into consideration of calculating the score so that the AI will choose the highest scoring move, meaning a move that has the least amount of resulting moves to a win, or draw.
 
+This AI is unbeatable, meaning it will make the best moves and attempt to win. It will either win or draw the game. The human player can never win.
+
 ###More stuff
 This game is structured so that it can easily be adapted to allow 2 human players, or a game completely played out by 2 AIs, as can be seen in cpu_test.rb
 
