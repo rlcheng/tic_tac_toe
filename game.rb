@@ -15,7 +15,7 @@ class Game
     @UI = ui
 
     choice = @UI.get_choice
-    @player = Player.new(choice)
+    @player = Player.new(choice, @UI)
     @UI.message("You are Player #{@player.marker}")
 
     if choice == 1
@@ -55,7 +55,7 @@ class Game
   end
 
   def loop
-    puts "#{@current_player.name} #{@current_player.marker} turn"
+    @UI.message("#{@current_player.name} #{@current_player.marker} turn")
     @current_player.move(@board)
     check
     @UI.print_board(@board.grid)

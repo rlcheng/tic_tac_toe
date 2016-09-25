@@ -6,7 +6,7 @@ class Cpu < Player
 
   GAME_NOT_OVER = 999
 
-  def initialize(turn)
+  def initialize(turn, ui = nil)
     super
     @name = 'CPU'
     if @turn == 1
