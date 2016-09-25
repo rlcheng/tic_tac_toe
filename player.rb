@@ -5,7 +5,7 @@ class Player
   attr_accessor :turn, :marker
   attr_reader :position, :name
 
-  def initialize(turn)
+  def initialize(turn, ui)
     @name = 'Player'
     @turn = turn
     if @turn == 1
@@ -14,7 +14,7 @@ class Player
       @marker = 'O'
     end
     @position = 0
-    @UI = UserInterface.new
+    @UI = ui
   end
 
   def move(board)

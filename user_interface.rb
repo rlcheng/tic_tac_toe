@@ -26,7 +26,7 @@ class UserInterface
   def get_allowed_input(min, max, message)
     input = 999
     while !input.between?(min, max)
-      puts "#{message}: "
+      puts "#{message}"
       input = get_input
     end
     input
