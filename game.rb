@@ -7,12 +7,12 @@ class Game
   attr_accessor :game_over
   attr_reader :player, :cpu, :current_player, :board
 
-  def initialize
+  def initialize (ui = UserInterface.new)
     @game_over = false
 
     @board = Board.new
 
-    @UI = UserInterface.new
+    @UI = ui
 
     choice = @UI.get_choice
     @player = Player.new(choice)
@@ -62,10 +62,3 @@ class Game
     next_turn
   end
 end
-
-if __FILE__ == $0
-  game = Game.new
-  while game.game_over == false do
-    game.loop
-  end
-end  
