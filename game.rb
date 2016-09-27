@@ -7,28 +7,18 @@ class Game
   attr_accessor :game_over
   attr_reader :player, :cpu, :current_player, :board
 
-  def initialize (ui = UserInterface.new)
+  def initialize (ui, player, cpu, current_player)
     @game_over = false
 
     @board = Board.new
 
     @UI = ui
-
-    choice = @UI.get_choice
-    @player = Player.new(choice, @UI)
-    @UI.message("You are Player #{@player.marker}")
-
-    if choice == 1
-      @cpu = Cpu.new(2)
-      @current_player = @player
-    else
-      @cpu = Cpu.new(1)
-      @current_player = @cpu
-    end
-    @UI.message("CPU is Player #{@cpu.marker}")
+    @player = player
+    @cpu = cpu
+    @current_player = current_player
 
     @UI.print_board(@board.grid)
-    puts ""
+    @UI.message("")
   end
 
   def next_turn
